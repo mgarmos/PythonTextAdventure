@@ -2,8 +2,6 @@ import random
 import textwrap
 
 
-
-
 width = 75
 dottedLine = '-' * width
 occupants = ['enemy', 'friend', 'unoccupied']
@@ -46,15 +44,34 @@ while (keepPlaying == 'y'):
         huts.append(random.choice(occupants))
 
     # Prompt the player to select a hut number
-    userChoice = int(input('Choose a hut number [1-5]: '))
+    userChoice = int(input("\033[1m" + "Choose a hut number [1-5]: " + "\033[0m"))
+
+    # Print the occupant info
+    print("Revealing the occupants...")
+
+    # Leo el contenido de cada cabaña y si coincide con el seleccionado la pongo en negrita
+    message = ""
+    for i in range(len(huts)):
+        ocupantInfo = "<%d:%s>"%(i+1,huts[i])
+        # Marco en negrita la cabaña selecionada
+        if userChoice == i+1:
+           ocupantInfo = "\033[31m" + ocupantInfo + "\033[0m"
+        message += ocupantInfo + " "
+    print("\t" + message)
+    print(dottedLine)
+
+    #Muestro la cabaña seleccionada y dejo preparado para que se añada el resultado (end=' ')
+    print("\033[1m" + "Entering hut %d ..." % (userChoice) +"\033[0m", end= ' ')
+
 
     # Result of combat
-    if huts[userChoice-1] == 'enemy':
-        print('you loose')
+    if huts[userChoice-1] == 'enemy':   
+        print("\033[1m" + "You loose. Better luck next time" +"\033[0m")
     else:
-       print('you win')
+       print("\033[1m" + "Congratulations: You win!!. " +"\033[0m")
+    
+    print(dottedLine)
 
-    print(huts)
     keepPlaying = input('Continue playing? [y/n]: ')
     
 

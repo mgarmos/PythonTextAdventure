@@ -21,13 +21,27 @@ TODO:
 v0.0.2
 Simple script – Attack of the Orcs
 -----------------------------------------------------
-Objectivo:
+Objetivo:
 • Print the game mission
 
 *****************************************************
 Creo una cadena que contiene todo el texto -> Corta las palabras -> Formateo
-    - importo texwraper
+    - importo textwrap
 
-
-
+*****************************************************
+v0.0.5
+Using functions – Attack of the Orcs
+-----------------------------------------------------
+How about including combat in the
+next version of the game? When Sir Foo encounters an enemy, he should not just
+give up that easily. Fight with the enemy! Let the combat decide the winner.
+*****************************************************
+- Revisiting the previous version. Use functions
+    show_theme_message
+    show_game_mission
+    occupy_huts
+    process_user_choice
+    reveal_occupants
+    enter_hut
+    
 
